@@ -23,6 +23,14 @@
             <typeparam name="T">The type to register.</typeparam>
             <returns>The registration configuration.</returns>
         </member>
+        <member name="M:Prism.Ioc.Configurator.ContainerBuilder.RegisterInstance``1(``0)">
+            <summary>
+            Registers the supplied instance.
+            </summary>
+            <typeparam name="T">The type to register.</typeparam>
+            <param name="instance">The instance to register.</param>
+            <returns>The registration configuration.</returns>
+        </member>
         <member name="M:Prism.Ioc.Configurator.ContainerBuilder.Update(Prism.Ioc.IContainerRegistry)">
             <summary>
             Updated the registry container with the configuration in the container builder.
@@ -46,6 +54,13 @@
             </summary>
             <param name="type">The type that is going to be registered.</param>
         </member>
+        <member name="M:Prism.Ioc.Configurator.RegistrationConfig.#ctor(System.Type,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Ioc.Configurator.RegistrationConfig"/> class.
+            </summary>
+            <param name="type">The type that is going to be registered.</param>
+            <param name="instance">The instance that is going to be used for the registration.</param>
+        </member>
         <member name="M:Prism.Ioc.Configurator.RegistrationConfig.As``1">
             <summary>
             Configures as which type the supplied class should be registered.
@@ -65,15 +80,15 @@
             </summary>
             <returns>The registration configuration.</returns>
         </member>
-        <member name="M:Prism.Ioc.Configurator.RegistrationConfig.SingleInstance">
-            <summary>
-            Configures that the supplied class type(s) should be registered as single instance(s).
-            </summary>
-            <returns>The registration configuration.</returns>
-        </member>
         <member name="M:Prism.Ioc.Configurator.RegistrationConfig.InstancePerDependency">
             <summary>
             Configures that the supplied class type(s) should be registered as instance per dependency.
+            </summary>
+            <returns>The registration configuration.</returns>
+        </member>
+        <member name="M:Prism.Ioc.Configurator.RegistrationConfig.SingleInstance">
+            <summary>
+            Configures that the supplied class type(s) should be registered as single instance(s).
             </summary>
             <returns>The registration configuration.</returns>
         </member>

@@ -57,6 +57,21 @@
         }
 
         /// <summary>
+        /// Registers the supplied instance.
+        /// </summary>
+        /// <typeparam name="T">The type to register.</typeparam>
+        /// <param name="instance">The instance to register.</param>
+        /// <returns>The registration configuration.</returns>
+        public RegistrationConfig RegisterInstance<T>(T instance)
+            where T : class
+        {
+            var type = typeof(T);
+            var config = new RegistrationConfig(type, instance);
+            _configs.Add(config);
+            return config;
+        }
+
+        /// <summary>
         /// Updated the registry container with the configuration in the container builder.
         /// </summary>
         /// <param name="container">The container registry.</param>

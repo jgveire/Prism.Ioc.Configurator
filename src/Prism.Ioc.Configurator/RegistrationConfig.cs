@@ -10,6 +10,7 @@
     /// </summary>
     public class RegistrationConfig
     {
+        private readonly object? _instance;
         private readonly ICollection<Type> _types;
         private bool _asImplementedInterfaces;
         private Type? _asType;
@@ -40,6 +41,17 @@
             {
                 type,
             };
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RegistrationConfig"/> class.
+        /// </summary>
+        /// <param name="type">The type that is going to be registered.</param>
+        /// <param name="instance">The instance that is going to be used for the registration.</param>
+        public RegistrationConfig(Type type, object instance)
+            : this(type)
+        {
+            _instance = instance ?? throw new ArgumentNullException(nameof(instance));
         }
 
         /// <summary>
@@ -74,22 +86,22 @@
         }
 
         /// <summary>
-        /// Configures that the supplied class type(s) should be registered as single instance(s).
-        /// </summary>
-        /// <returns>The registration configuration.</returns>
-        public RegistrationConfig SingleInstance()
-        {
-            _singleInstance = true;
-            return this;
-        }
-
-        /// <summary>
         /// Configures that the supplied class type(s) should be registered as instance per dependency.
         /// </summary>
         /// <returns>The registration configuration.</returns>
         public RegistrationConfig InstancePerDependency()
         {
             _singleInstance = false;
+            return this;
+        }
+
+        /// <summary>
+        /// Configures that the supplied class type(s) should be registered as single instance(s).
+        /// </summary>
+        /// <returns>The registration configuration.</returns>
+        public RegistrationConfig SingleInstance()
+        {
+            _singleInstance = true;
             return this;
         }
 
@@ -113,41 +125,17 @@
             var types = GetFilteredType(_types);
             foreach (var type in types)
             {
-                if (_singleInstance)
+                if (_instance != null)
                 {
-                    if (_asType != null)
-                    {
-                        container.RegisterSingleton(_asType, type);
-                    }
-                    else if (_asImplementedInterfaces)
-                    {
-                        foreach (var interfaceType in type.GetInterfaces())
-                        {
-                            container.RegisterSingleton(interfaceType, type);
-                        }
-                    }
-                    else
-                    {
-                        container.RegisterSingleton(type);
-                    }
+                    RegisterInstance(container, type);
+                }
+                else if (_singleInstance)
+                {
+                    RegisterSingleton(container, type);
                 }
                 else
                 {
-                    if (_asType != null)
-                    {
-                        container.Register(_asType, type);
-                    }
-                    else if (_asImplementedInterfaces)
-                    {
-                        foreach (var interfaceType in type.GetInterfaces())
-                        {
-                            container.Register(interfaceType, type);
-                        }
-                    }
-                    else
-                    {
-                        container.Register(type);
-                    }
+                    RegisterInstancePerDependency(container, type);
                 }
             }
         }
@@ -160,6 +148,63 @@
             }
 
             return types.Where(_whereExpression);
+        }
+
+        private void RegisterInstance(IContainerRegistry container, Type type)
+        {
+            if (_asType != null)
+            {
+                container.RegisterInstance(_asType, _instance);
+            }
+            else if (_asImplementedInterfaces)
+            {
+                foreach (var interfaceType in type.GetInterfaces())
+                {
+                    container.RegisterInstance(interfaceType, _instance);
+                }
+            }
+            else
+            {
+                container.RegisterInstance(type, _instance);
+            }
+        }
+
+        private void RegisterInstancePerDependency(IContainerRegistry container, Type type)
+        {
+            if (_asType != null)
+            {
+                container.Register(_asType, type);
+            }
+            else if (_asImplementedInterfaces)
+            {
+                foreach (var interfaceType in type.GetInterfaces())
+                {
+                    container.Register(interfaceType, type);
+                }
+            }
+            else
+            {
+                container.Register(type);
+            }
+        }
+
+        private void RegisterSingleton(IContainerRegistry container, Type type)
+        {
+            if (_asType != null)
+            {
+                container.RegisterSingleton(_asType, type);
+            }
+            else if (_asImplementedInterfaces)
+            {
+                foreach (var interfaceType in type.GetInterfaces())
+                {
+                    container.RegisterSingleton(interfaceType, type);
+                }
+            }
+            else
+            {
+                container.RegisterSingleton(type);
+            }
         }
     }
 }

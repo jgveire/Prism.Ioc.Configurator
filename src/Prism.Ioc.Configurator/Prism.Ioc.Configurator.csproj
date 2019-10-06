@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0-Beta1</Version>
+    <Description>A Prism IoC helper packages to be able to easily register types for dependency injection.</Description>
+    <PackageProjectUrl>https://github.com/jgveire/Prism.Ioc.Configurator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jgveire/Prism.Ioc.Configurator</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Prism IoC Helper</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

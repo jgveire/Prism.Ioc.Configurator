@@ -51,7 +51,9 @@
                 throw new ArgumentException($"The supplied type cannot be an abstract class ({type.FullName}).");
             }
 
-            return new RegistrationConfig(type);
+            var config = new RegistrationConfig(type);
+            _configs.Add(config);
+            return config;
         }
 
         /// <summary>

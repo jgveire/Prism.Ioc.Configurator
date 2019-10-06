@@ -59,9 +59,21 @@
             </summary>
             <returns>The registration configuration.</returns>
         </member>
+        <member name="M:Prism.Ioc.Configurator.RegistrationConfig.AsSelf">
+            <summary>
+            Configures that the supplied class type(s) should be registered with their own type.
+            </summary>
+            <returns>The registration configuration.</returns>
+        </member>
         <member name="M:Prism.Ioc.Configurator.RegistrationConfig.SingleInstance">
             <summary>
             Configures that the supplied class type(s) should be registered as single instance(s).
+            </summary>
+            <returns>The registration configuration.</returns>
+        </member>
+        <member name="M:Prism.Ioc.Configurator.RegistrationConfig.InstancePerDependency">
+            <summary>
+            Configures that the supplied class type(s) should be registered as instance per dependency.
             </summary>
             <returns>The registration configuration.</returns>
         </member>

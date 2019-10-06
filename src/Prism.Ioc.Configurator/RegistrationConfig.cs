@@ -64,12 +64,32 @@
         }
 
         /// <summary>
+        /// Configures that the supplied class type(s) should be registered with their own type.
+        /// </summary>
+        /// <returns>The registration configuration.</returns>
+        public RegistrationConfig AsSelf()
+        {
+            _asImplementedInterfaces = false;
+            return this;
+        }
+
+        /// <summary>
         /// Configures that the supplied class type(s) should be registered as single instance(s).
         /// </summary>
         /// <returns>The registration configuration.</returns>
         public RegistrationConfig SingleInstance()
         {
             _singleInstance = true;
+            return this;
+        }
+
+        /// <summary>
+        /// Configures that the supplied class type(s) should be registered as instance per dependency.
+        /// </summary>
+        /// <returns>The registration configuration.</returns>
+        public RegistrationConfig InstancePerDependency()
+        {
+            _singleInstance = false;
             return this;
         }
 

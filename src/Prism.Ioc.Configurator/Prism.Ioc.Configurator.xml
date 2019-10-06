@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prism.Ioc.Configurator</name>
+    </assembly>
+    <members>
+        <member name="T:Prism.Ioc.Configurator.ContainerBuilder">
+            <summary>
+            The dependency injection container builder.
+            </summary>
+        </member>
+        <member name="M:Prism.Ioc.Configurator.ContainerBuilder.RegisterAssemblyTypes(System.Reflection.Assembly)">
+            <summary>
+            Registers the class types in the supplied assembly.
+            </summary>
+            <param name="assembly">The assembly to register the types from.</param>
+            <returns>The registration configuration.</returns>
+        </member>
+        <member name="M:Prism.Ioc.Configurator.ContainerBuilder.RegisterType``1">
+            <summary>
+            Registers the supplied type.
+            </summary>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns>The registration configuration.</returns>
+        </member>
+        <member name="M:Prism.Ioc.Configurator.ContainerBuilder.Update(Prism.Ioc.IContainerRegistry)">
+            <summary>
+            Updated the registry container with the configuration in the container builder.
+            </summary>
+            <param name="container">The container registry.</param>
+        </member>
+        <member name="T:Prism.Ioc.Configurator.RegistrationConfig">
+            <summary>
+            The registration configuration for types.
+            </summary>
+        </member>
+        <member name="M:Prism.Ioc.Configurator.RegistrationConfig.#ctor(System.Collections.Generic.ICollection{System.Type})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Ioc.Configurator.RegistrationConfig"/> class.
+            </summary>
+            <param name="types">The types that are going to be registered.</param>
+        </member>
+        <member name="M:Prism.Ioc.Configurator.RegistrationConfig.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Prism.Ioc.Configurator.RegistrationConfig"/> class.
+            </summary>
+            <param name="type">The type that is going to be registered.</param>
+        </member>
+        <member name="M:Prism.Ioc.Configurator.RegistrationConfig.As``1">
+            <summary>
+            Configures as which type the supplied class should be registered.
+            </summary>
+            <typeparam name="T">The type the supplied class should be registered.</typeparam>
+            <returns>The registration configuration.</returns>
+        </member>
+        <member name="M:Prism.Ioc.Configurator.RegistrationConfig.AsImplementedInterfaces">
+            <summary>
+            Configures that the supplied class type(s) should be registered with their implemented interfaces.
+            </summary>
+            <returns>The registration configuration.</returns>
+        </member>
+        <member name="M:Prism.Ioc.Configurator.RegistrationConfig.SingleInstance">
+            <summary>
+            Configures that the supplied class type(s) should be registered as single instance(s).
+            </summary>
+            <returns>The registration configuration.</returns>
+        </member>
+        <member name="M:Prism.Ioc.Configurator.RegistrationConfig.Where(System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})">
+            <summary>
+            Configures a filter that determines which types should be used for registration.
+            </summary>
+            <param name="filterExpression">The expression that filters the supplied type.</param>
+            <returns>The registration configuration.</returns>
+        </member>
+        <member name="M:Prism.Ioc.Configurator.RegistrationConfig.Update(Prism.Ioc.IContainerRegistry)">
+            <summary>
+            Updated the registry container with the configuration in the container builder.
+            </summary>
+            <param name="container">The container registry.</param>
+        </member>
+    </members>
+</doc>

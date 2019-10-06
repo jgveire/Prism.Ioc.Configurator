@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29201.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prism.Ioc.Configurator", "src\Prism.Ioc.Configurator\Prism.Ioc.Configurator.csproj", "{6F8A6217-F5A4-457A-8F56-6F0F2B846108}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4CD10C88-0C64-4A3F-873F-0931594BCE8C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "settings", "settings", "{A3DA0ED1-B73A-4856-95E1-36C58B4EB3F4}"
+	ProjectSection(SolutionItems) = preProject
+		settings\Vanguard.ruleset = settings\Vanguard.ruleset
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{522CFC79-C8E3-4EA7-BDB2-712347300E16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prism.Ioc.Configurator.Tests", "tests\Prism.Ioc.Configurator.Tests\Prism.Ioc.Configurator.Tests.csproj", "{D38BF142-5218-4CCB-8409-7827A81FFB87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F8A6217-F5A4-457A-8F56-6F0F2B846108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F8A6217-F5A4-457A-8F56-6F0F2B846108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F8A6217-F5A4-457A-8F56-6F0F2B846108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F8A6217-F5A4-457A-8F56-6F0F2B846108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38BF142-5218-4CCB-8409-7827A81FFB87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38BF142-5218-4CCB-8409-7827A81FFB87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38BF142-5218-4CCB-8409-7827A81FFB87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38BF142-5218-4CCB-8409-7827A81FFB87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6F8A6217-F5A4-457A-8F56-6F0F2B846108} = {4CD10C88-0C64-4A3F-873F-0931594BCE8C}
+		{D38BF142-5218-4CCB-8409-7827A81FFB87} = {522CFC79-C8E3-4EA7-BDB2-712347300E16}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {559E063E-5B26-4956-8435-F56D6F18A0C6}
+	EndGlobalSection
+EndGlobal
